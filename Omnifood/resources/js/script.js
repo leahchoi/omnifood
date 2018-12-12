@@ -3,6 +3,7 @@ $(document).ready(function() {
     
     /* For the sticky navigation */
     $('.js--section-features').waypoint(function(direction) {
+        debugger;
         if (direction == "down") {
             $('nav').addClass('sticky');
         } else {
@@ -15,19 +16,26 @@ $(document).ready(function() {
     
     /* Scroll on buttons */
     $('.js--scroll-to-plans').click(function () {
+        debugger;
        $('html, body').animate({scrollTop: $('.js--section-plans').offset().top}, 1000); 
     });
     
     $('.js--scroll-to-start').click(function () {
+        debugger;
        $('html, body').animate({scrollTop: $('.js--section-features').offset().top}, 1000); 
     });
     
     /* Navigation scroll */
     $(function() {
+        debugger;
       $('a[href*=#]:not([href=#])').click(function() {
+          debugger;
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            $('.js--main-nav').slideToggle(200);
+            $('.js--nav-icon i').addClass('ion-navicon-round');
+            $('.js--nav-icon i').removeClass('ion-close-round');
           if (target.length) {
             $('html,body').animate({
               scrollTop: target.offset().top
@@ -40,6 +48,7 @@ $(document).ready(function() {
     
     /* Animations on scroll */
     $('.js--wp-1').waypoint(function(direction) {
+        debugger;
         $('.js--wp-1').addClass('animated fadeIn');
     }, {
         offset: '50%'
@@ -66,6 +75,7 @@ $(document).ready(function() {
     
     /* Mobile navigation */
     $('.js--nav-icon').click(function() {
+        debugger;
         var nav = $('.js--main-nav');
         var icon = $('.js--nav-icon i');
         
@@ -77,9 +87,16 @@ $(document).ready(function() {
         } else {
             icon.addClass('ion-navicon-round');
             icon.removeClass('ion-close-round');
-        }        
+        }
     });
+    // $('ul.js--main-nav li a').click(function() {
+    //     $('.js--nav-icon i').addClass('ion-navicon-round');
+    //     $('.js--nav-icon i').removeClass('ion-close-round');
+    //     document.getElementById('myModal').style.display = "none";
+    //     window.location.href = window.location.href.split('#')[0]
+    // })
 });
+
 
 // modal code
 
@@ -92,21 +109,28 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+var mobileNavSpan = $('ul.js--main-nav li a');
+
 // When the user clicks the button, open the modal 
-btn.onclick = function () {
-    modal.style.display = "block";
-}
+// btn.onclick = function () {
+//     modal.style.display = "block";
+// }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-    window.location.href = window.location.href.split('#')[0]
-}
+// span.onclick = function () {
+//     modal.style.display = "none";
+//     window.location.href = window.location.href.split('#')[0]
+// }
+
+// $('ul.js--main-nav li a').click = function (){
+//     modal.style.display = "none";
+//     window.location.href = window.location.href.split('#')[0]
+// }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        window.location.href = window.location.href.split('#')[0]
-    }
-}
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//         window.location.href = window.location.href.split('#')[0]
+//     }
+// }
