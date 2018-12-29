@@ -33,9 +33,12 @@ $(document).ready(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            $('.js--main-nav').slideToggle(200);
-            $('.js--nav-icon i').addClass('ion-navicon-round');
-            $('.js--nav-icon i').removeClass('ion-close-round');
+            if ($('.js--nav-icon i').hasClass('ion-close-round')){
+                debugger;
+                $('.js--main-nav').slideToggle(200);
+                $('.js--nav-icon i').addClass('ion-navicon-round');
+                $('.js--nav-icon i').removeClass('ion-close-round');
+            };
           if (target.length) {
             $('html,body').animate({
               scrollTop: target.offset().top
